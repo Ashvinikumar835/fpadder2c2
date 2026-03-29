@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1774753295" />
+    <testcase name="fpadder9c_directed_test" classname="test_fpadder2c2_hidden" file="/home/ashvinikumar/phinity/cursor/fpadder9c2/fpadder2c2/tests/test_fpadder2c2_hidden.py" lineno="37" time="0.002277374267578125" sim_time_ns="3600.0" ratio_time="1580767.83919598" />
+  </testsuite>
+</testsuites>
