@@ -130,7 +130,7 @@ async def test_neg_add_y1y1(dut):
 
 # ---------------- PYTEST RUNNER ---------------- #
 
-def test_logconv_runner():
+def test_fpadder2c2_runner():
     """Pytest wrapper to run cocotb tests"""
     sim = os.getenv("SIM", "icarus")
     proj_path = Path(__file__).resolve().parent.parent
