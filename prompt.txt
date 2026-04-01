@@ -1,1 +1,29 @@
-"Complete the implementation in sources/fpadder2c2.v"
+"Implement IEEE 754 binary16 (half precision) addition in sources/fpadder2c2.v.
+
+Bit fields: fpa/fpb/fpo[15] sign, [14:10] exponent (5 bits, bias 15), [9:0] fraction (10 bits). You may
+ignore special values (zero, Inf, NaN) as in the tests.
+
+you must use only one shifter for 1: To align the mantissas before addition. and 
+2: To align the result after addition, 
+
+You must use structural style of modeling.
+
+
+Inputs:
+- fpa, fpb: operands.
+- i1: hidden/implicit leading bit of the significand. For normalized operands the tests use i1=1; it must
+  participate in the 11-bit significand path together with the 10 fraction bits (see a typical FP adder:
+  align by exponent difference, add/subtract significands, normalize).
+- ctrl: stage select for the internal datapath (mux/demux around shifting and mantissa processing). It is
+  NOT an output bypass. Do not implement fpo as (ctrl ? computed : fpa) or any form that passes fpa through
+  when ctrl is 0. when ctrl = 1, align mantissa before addition. when ctrl = 0, align result after addition.
+  
+  The reference behavior is multi-path structural logic; fpo must reflect the result
+  after the second ctrl phase.
+
+Use structural Verilog: build the datapath with separate modules (e.g. compare/exponent difference,
+mantissa compare, muxes, barrel shifter, add/sub, leading-one detection, exponent adjust). Avoid a single
+monolithic always block that only describes FP math in C style without matching the ctrl/i1 datapath.
+
+Output:
+fpo: 16 bit floating point number"
